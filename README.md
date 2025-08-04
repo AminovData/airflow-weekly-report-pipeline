@@ -73,9 +73,8 @@ This pipeline simulates an e-commerce platform where customer, order, and produc
 
 ## 📊 Dashboard (Looker Studio)
 
-* \[📸 Add screenshot: `docs/looker_studio_dashboard.png` here]
-* Metrics include: Weekly Revenue, Customer Count, Product Popularity
-
+<img width="804" height="602" alt="image" src="https://github.com/user-attachments/assets/165c1cd4-ebf0-4808-be4a-da3b82d7fc70" />
+Link: https://lookerstudio.google.com/reporting/129394b1-1236-4f70-99fe-ea141b592aab
 ---
 
 ## 🛡️ PostgreSQL Schema
@@ -88,34 +87,32 @@ This pipeline simulates an e-commerce platform where customer, order, and produc
 
 * Designed for referential integrity and realistic transactional workloads.
 
-> 📸 ***Add schema screenshot: `docs/transactional_schema.png` here***
+<img width="971" height="576" alt="image" src="https://github.com/user-attachments/assets/f88b0f19-83bd-4ef4-b685-9832f85c5e2b" />
+The {} file shows how PostgreSQL was created using Python + PostreSQL
 
 ---
 
-## 💩 Data Cleaning & Preparation
+## 💩 Data Cleaning & Preparation & Modification
 
-Before ingestion into the pipeline, data was manually simulated and engineered:
+Before ingestion into the pipeline, the raw data went through cleaning and modification process to reflect realistic business scenarios:
 
-* A **PostgreSQL database** was created from scratch using SQL DDL.
-* Tables: `customers`, `products`, `orders`, `order_details`, `addons_purchases`
-* Columns added to enrich complexity and analytical power:
+✅ Data Cleaning: Removed duplicates, handled null values, ensured consistent data types.
 
-  * `loyalty_member`, `gender`, `registration_date`, `addon_total`, `rating`, etc.
-* Data types, enums (e.g., `order_status_enum`), and constraints were defined for integrity.
-* Scripts inserted **synthetic but realistic data** using Python and SQL logic.
+⚖️ Data Modification:  Adjusted customer activity, order frequency, and event-based sales spikes (e.g., holiday boosts) to reflect realistic trends. 
 
-> ✅ See [`scripts/create_schema_and_seed_data.sql`](scripts/create_schema_and_seed_data.sql) for the full schema setup and generation.
+🧬 Synthetic Data Generation: Created additional columns using Python to add complexity and analytical depth:
 
-> 📸 ***Add before/after snapshots of sample data if desired***
+    - Examples include loyalty_member, gender, registration_date, addon_total, rating, and more.
+🔎 The {} file shows the all of the above process
 
 ---
 
 ## 🗂️ Airflow DAG Overview
 
-* Runs weekly (customizable via `schedule_interval`)
-* Includes Slack alerting on failure
+* Runs weekly 
 
-> 📸 ***Add Airflow DAG screenshot: `docs/airflow_pipeline_diagram.png` here***
+<img width="980" height="429" alt="image" src="https://github.com/user-attachments/assets/8561a34d-7d2a-4c25-80c7-18f7ddc6e2d9" />
+
 
 ---
 
