@@ -15,7 +15,8 @@ airflow-weekly-report-pipeline/
 │   ├── dbt_project.yml
 │   ├── profiles.yml
 │   └── models/
-│       └── weekly_aggregates.sql
+│       └── data_preparation.ipynb
+│       └── data_insert_and_schema_creation.ipynb
 │
 ├── data_preparation_files/
 │   └── create_schema_and_seed_data.sql
@@ -25,7 +26,6 @@ airflow-weekly-report-pipeline/
 ├── requirements.txt                      
 ├── README.md 
 ```
-
 ---
 
 ## 🧠 Overview
