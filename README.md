@@ -1,7 +1,6 @@
 # 🌀 Airflow Weekly Report Pipeline
 
-This project demonstrates an **end-to-end ELT pipeline** using **Apache Airflow**, **Google Cloud Storage (GCS)**, **BigQuery**, **dbt**, and **Looker Studio**. It is designed as a **portfolio project** to showcase practical data engineering skills including orchestration, data validation, transformation, and dashboard reporting.
-
+This project demonstrates an **end-to-end ELT pipeline** using **Apache Airflow**, **Google Cloud Storage (GCS)**, **BigQuery**, **dbt**, and **Looker Studio**. 
 ---
 
 ## 📁 Project Structure
@@ -10,25 +9,21 @@ This project demonstrates an **end-to-end ELT pipeline** using **Apache Airflow*
 airflow-weekly-report-pipeline/
 │
 ├── dags/
-│   └── weekly_report_pipeline.py          # Airflow DAG for weekly pipeline
+│   └── weekly_report_pipeline.py 
 │
 ├── dbt/
 │   ├── dbt_project.yml
 │   ├── profiles.yml
 │   └── models/
-│       └── weekly_aggregates.sql         # dbt model
+│       └── weekly_aggregates.sql
 │
-├── scripts/
-│   └── create_schema_and_seed_data.sql   # SQL to create schema and simulate data
+├── data_preparation_files/
+│   └── create_schema_and_seed_data.sql
 │
-├── .env                                   # Environment variables (not committed)
-├── .gitignore                             # Ignore credentials & virtual envs
-├── requirements.txt                       # Python dependencies
-├── README.md                              # Project documentation (you are here)
-└── docs/
-    ├── airflow_pipeline_diagram.png      # [📸 Add Airflow DAG screenshot here]
-    ├── transactional_schema.png          # [📸 Add PostgreSQL transactional schema diagram here]
-    └── looker_studio_dashboard.png       # [📸 Add Looker Studio dashboard screenshot here]
+├── .env                                   
+├── .gitignore 
+├── requirements.txt                      
+├── README.md 
 ```
 
 ---
@@ -48,7 +43,7 @@ This pipeline simulates an e-commerce platform where customer, order, and produc
 
 ---
 
-## 🔧 Technologies Used
+## 🔧 Used Tools
 
 * **Apache Airflow** (orchestration)
 * **Google Cloud Platform**: GCS & BigQuery
@@ -60,7 +55,7 @@ This pipeline simulates an e-commerce platform where customer, order, and produc
 
 ---
 
-## 🚀 Pipeline Tasks Breakdown
+## 🚀 Pipeline Tasks
 
 | Task                       | Description                                                   |
 | -------------------------- | ------------------------------------------------------------- |
@@ -71,7 +66,7 @@ This pipeline simulates an e-commerce platform where customer, order, and produc
 
 ---
 
-## 📊 Dashboard (Looker Studio)
+## 📊 Dashboard (Using Looker Studio)
 
 <img width="804" height="602" alt="image" src="https://github.com/user-attachments/assets/165c1cd4-ebf0-4808-be4a-da3b82d7fc70" />
 Link: https://lookerstudio.google.com/reporting/129394b1-1236-4f70-99fe-ea141b592aab
@@ -161,21 +156,9 @@ airflow dags trigger weekly_report_pipeline
 
 ---
 
-## 📦 Future Improvements
-
-* Add automated dbt testing + documentation
-* Add unit/integration testing to DAG logic
-* Parametrize for multi-region processing
-
----
-
 ## 👨‍💻 Author
 
 **Alidzhon Aminov**
 Data Engineer & Data Scientist
 
 ---
-
-## 📟 License
-
-This project is for educational purposes only.
