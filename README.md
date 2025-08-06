@@ -15,14 +15,18 @@ airflow-weekly-report-pipeline/
 │   ├── dbt_project.yml
 │   ├── profiles.yml
 │   └── models/
+│       └── daily_sales_with_tag_customers.sql
+│       └── fact_weekly_order_size_distribution.sql
+│       └── fact_weekly_order_size_distribution.sql
+│       └── weekly_top_addson.sql
+│       └── weekly_top_product_types.sql
 │       
 │
 ├── data_preparation_files/
 │   └── data_preparation.ipynb
 │   └── data_insert_and_schema_creation.ipynb
 │
-├── .env                                   
-├── .gitignore 
+├── ..env.example                                   
 ├── requirements.txt                      
 ├── README.md 
 ```
