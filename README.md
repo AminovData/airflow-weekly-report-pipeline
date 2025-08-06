@@ -11,15 +11,15 @@ airflow-weekly-report-pipeline/
 ├── dags/
 │   └── weekly_report_pipeline.py 
 │
-├── dbt/
+├── dashboard_project_electronic_sales_dbt/
 │   ├── dbt_project.yml
 │   ├── profiles.yml
 │   └── models/
-│       └── data_preparation.ipynb
-│       └── data_insert_and_schema_creation.ipynb
+│       
 │
 ├── data_preparation_files/
-│   └── create_schema_and_seed_data.sql
+│   └── data_preparation.ipynb
+│   └── data_insert_and_schema_creation.ipynb
 │
 ├── .env                                   
 ├── .gitignore 
