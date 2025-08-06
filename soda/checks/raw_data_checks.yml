@@ -1,0 +1,76 @@
+checks for customers:
+  - row_count > 0
+  - missing_count(customer_id) = 0
+  - missing_count(age) = 0
+  - missing_count(gender) = 0
+  - missing_count(loyalty_member) = 0
+  - missing_count(registration_date) = 0
+  #- freshness(registration_date) < 365d
+  - min(age) >= 0
+  - max(age) <= 120
+
+checks for orders:
+  - row_count > 0
+  - missing_count(order_id) = 0
+  - missing_count(customer_id) = 0
+  - missing_count(total_price) = 0
+  - missing_count(purchase_date) = 0
+  - missing_count(order_status) = 0
+  - missing_count(payment_method) = 0
+  - missing_count(addon_total) = 0
+  - unexpected_order_status = 0:
+      unexpected_order_status query: |
+        SELECT COUNT(*) AS unexpected_order_status
+        FROM orders
+        WHERE order_status NOT IN ('completed', 'cancelled')
+  - duplicate_count(order_id) = 0
+  - min(total_price) >= 0
+  - min(addon_total) >= 0
+  #- freshness(purchase_date) < 90d
+
+checks for products:
+  - row_count > 0
+  - missing_count(product_id) = 0
+  - missing_count(product_type) = 0
+  - missing_count(unit_price) = 0
+  - min(unit_price) >= 0
+
+checks for order_details:
+  - row_count > 0
+  - missing_count(order_id) = 0
+  - missing_count(product_id) = 0
+  - missing_count(quantity) = 0
+  - min(quantity) >= 1
+
+checks for addons_purchases:
+  - missing_count(addon_purchased) < 10
+  - row_count >= 0
+
+checks for referential_integrity:
+  - missing_customers_in_orders = 0:
+      missing_customers_in_orders query: |
+        SELECT COUNT(*) AS missing_customers_in_orders
+        FROM orders o
+        LEFT JOIN customers c ON o.customer_id = c.customer_id
+        WHERE c.customer_id IS NULL
+
+  - missing_orders_in_order_details = 0:
+      missing_orders_in_order_details query: |
+        SELECT COUNT(*) AS missing_orders_in_order_details
+        FROM order_details od
+        LEFT JOIN orders o ON od.order_id = o.order_id
+        WHERE o.order_id IS NULL
+
+  - missing_products_in_order_details = 0:
+      missing_products_in_order_details query: |
+        SELECT COUNT(*) AS missing_products_in_order_details
+        FROM order_details od
+        LEFT JOIN products p ON od.product_id = p.product_id
+        WHERE p.product_id IS NULL
+
+  - missing_order_details_in_addons = 0:
+      missing_order_details_in_addons query: |
+        SELECT COUNT(*) AS missing_order_details_in_addons
+        FROM addons_purchases ad
+        LEFT JOIN order_details od ON ad.order_id = od.order_id
+        WHERE od.order_id IS NULL

@@ -1,0 +1,7 @@
+  soda_cloud:
+  host:                   # Soda Cloud API endpoint :contentReference[oaicite:0]{index=0}
+  api_key_id:             #  Soda Cloud API Key ID
+  api_key_secret:         #  Soda Cloud API Key Secret
+  organization_id: 
+  enabled: false          #  Soda Cloud Organization ID
+s

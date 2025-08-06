@@ -1,0 +1,12 @@
+dashboard_project_electronic_sales:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: dashboardprojectelsales        # GCP project ID
+      dataset: dashboard_dataset              # BigQuery dataset name
+      keyfile:                                # Path to GCP service account key JSON
+      threads: 1
+      timeout_seconds: 300
+      location:                               # BigQuery dataset location, e.g. US, EU

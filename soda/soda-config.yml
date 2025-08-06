@@ -1,0 +1,8 @@
+data_source transaction_database:
+  type:                         # Supported data source type
+  host:                         # Hostname or IP for your Postgres database
+  port:                         # Port for Postgres
+  username:                     # DB username
+  password:                     # DB password
+  database:                     # DB name
+  schema:                       # (optional) schema to use
